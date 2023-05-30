@@ -1,0 +1,27 @@
+<meta charset="UTF-8"> 
+<h1> ejercicio pares de 1 a 100 </h1>
+
+<script> 
+
+		function saltarLinea() { 
+	document.write ("<br><br>")
+	document.write ("<hr>")
+	
+}
+
+		function imprimir(frase) { 
+
+	document.write("<big>" + frase + "</big>");
+    saltarLinea();
+}
+//////////////////////////////////////////////////////////////////
+
+var contador = 2;
+	while (contador <= 100) {
+		imprimir(contador)
+		contador = contador + 2
+}
+
+		imprimir("FIN");
+		
+</script>

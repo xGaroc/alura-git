@@ -1,0 +1,50 @@
+<canvas width="600" height="400"> </canvas>
+
+<script>
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");    
+    pincel.fillStyle = "grey";
+    pincel.fillRect(0, 0, 600, 400); 
+    var colores = ["blue", "red", "green", "black", "yellow"];
+    var indiceColorActual = 0; 
+    var xInicial, yInicial, xFinal, yFinal;
+
+    function dibujarLinea(evento) {
+        if (evento.buttons !== 1) {
+            // Se ha soltado el botón del mouse, restablecer coordenadas iniciales
+            xInicial = undefined;
+            yInicial = undefined;
+            return;
+        }
+
+        xFinal = evento.pageX - pantalla.offsetLeft;
+        yFinal = evento.pageY - pantalla.offsetTop;
+
+        pincel.strokeStyle = colores[indiceColorActual];
+        pincel.beginPath();
+        if (xInicial !== undefined && yInicial !== undefined) {
+            pincel.moveTo(xInicial, yInicial);
+        }
+        pincel.lineTo(xFinal, yFinal);
+        pincel.stroke();
+
+        xInicial = xFinal;
+        yInicial = yFinal;
+    }
+
+    function alterarColor(evento) {
+        if (evento.buttons === 1) {
+            // Botón izquierdo presionado, no cambiar de color
+            return false;
+        }
+
+        indiceColorActual++;
+        if (indiceColorActual >= colores.length) {
+            indiceColorActual = 0;
+        }
+        return false;
+    }
+
+    pantalla.onmousemove = dibujarLinea;
+    pantalla.oncontextmenu = alterarColor;
+</script>

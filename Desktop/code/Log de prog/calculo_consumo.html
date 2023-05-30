@@ -1,0 +1,30 @@
+<meta charset="UTF-8"> 
+<h1> ¿Alcohól o Gasolina? </h1>
+
+<script> ;
+
+function saltarLinea() { 
+	document.write ("<br><br><br><br><br>");
+	document.write ("<hr>")
+	
+}
+
+function imprimir(frase) { 
+	document.write("<big>" + frase + "</big>");
+    saltarLinea();
+}
+// el codigo calcula la eficiencia de estso dos combustibles
+
+var kmA = 480;
+var kmB = 300;
+var lt = 40;
+
+	imprimir ("Consumo de auto con Gasolina: ");
+	imprimir (( kmA/lt) + " km/l");
+ 	imprimir ("Consumo de auto con Alcohól: ");
+	imprimir ((kmB/lt) + " km/l");
+
+	 	
+
+ 	imprimir ("Al parecer el de Gasolina tiene mejor eficiencia");
+</script>
